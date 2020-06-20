@@ -1,18 +1,22 @@
 public class LinkedStack<T> implements StackInterface<T> {
 
     private Node topNode;
+    private int numberOfElement=0;
 
     @Override
     public void push(T newEntry) {
         Node newNode=new Node(newEntry, topNode);
         topNode=newNode;
+        numberOfElement++;
     }//O(1)
 
     @Override
     public T pop() {
         T top=peek();
-        if(topNode!=null)
+        if(topNode!=null){
             topNode=topNode.getNext();
+            numberOfElement--;
+        }
         return top;
     }//O(1)
 
@@ -32,6 +36,7 @@ public class LinkedStack<T> implements StackInterface<T> {
     @Override
     public void clean() {
         topNode=null;
+        numberOfElement=0;
     }//O(1)
     
     private class Node{
