@@ -63,4 +63,12 @@ class FixedExpressions{
 
         return result;
     }
+
+    public static String infixToPostfix(String expression){
+        String result="";
+
+        result=new StringBuilder(infixToPostFix(expression)).reverse().toString();        
+        return result;
+    }
+
 }
